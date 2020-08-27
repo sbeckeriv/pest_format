@@ -21,8 +21,8 @@ impl Component for Home {
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
         Self {
             state: State {
-                user: String::from("user"),
-                formatted: String::from("formatted"),
+                user: String::from(""),
+                formatted: String::from(""),
             },
             link,
         }
@@ -32,7 +32,6 @@ impl Component for Home {
         match message {
             Msg::FormatPest(user_text) => {
                 let cfg = Settings::default();
-                //let file = include_str!("pest.pest");
                 self.state.formatted = format!("{}", cfg.format(&user_text));
                 self.state.user = user_text;
                 true
@@ -45,16 +44,14 @@ impl Component for Home {
     }
 
     fn view(&self) -> Html {
-        html! { <span>
-            <textarea rows=5
-                id = "user"
-                class = "user"
-                value=&self.state.user
-                oninput=self.link.callback(|e: InputData| Msg::FormatPest(e.value))
-                placeholder="placeholder">
-            </textarea>
-        <textarea id="formatted" name="formatted" class="formatted" rows="5" cols="33" value=&self.state.formatted> </textarea>
-                  <button onclick=self.link.callback(move |_| Msg::FormatPest("test".to_string()))>{"Add To Ca2rt"}</button>
-                </span> }
+        html! {
+           <span>
+        <form action="#">
+           <label for="user">{"User pest input"}</label>
+           <textarea rows="33" cols="33" id="user" class="user" value=&self.state.user oninput=self.link.callback(|e: InputData| Msg::FormatPest(e.value)) > </textarea>
+           <label for="formatted">{"Formatted pest output"}</label>
+           <textarea id="formatted"  name="formatted" class="formatted" rows="33" cols="33" value=&self.state.formatted> </textarea>
+           </form>
+           </span> }
     }
 }
