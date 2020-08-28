@@ -20,7 +20,7 @@ impl Home {
               <header class="{ sticky: scrollPos > 50 }">
                 <div class="container">
                   <div class="nav-brand">
-                    <h1><img src="logo.gif" height="50"/>{" Pest Formatter"}</h1>
+                    <h1><img src="https://raw.githubusercontent.com/sbeckeriv/pest_format/master/docs/logo.gif" height="50"/>{" Pest Formatter"}</h1>
                   </div>
 
                   <div class="social-buttons">
