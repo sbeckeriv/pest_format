@@ -24,8 +24,8 @@ struct State {
 impl Default for State {
     fn default() -> Self {
         State {
-            user: String::new(),
-            formatted: String::new(),
+            user: String::from("alpha={ 'a'..'z' | 'A'..'Z' }\ndigit={ '0'..'9' }\n\nident = { (alpha | digit)+ }\nident_list = _{ !digit ~ ident ~ (\" \" ~ ident)+ }"),
+            formatted: String::from("alpha =  {'a'..'z'|'A'..'Z'}\ndigit =  {'0'..'9'}\n\nident      =  {(alpha|digit)+}\nident_list = _{!digit ~ ident ~ (\" \" ~ ident)+}"),
             // tab = 4 space
             indent: 4,
             set_alignment: true,
