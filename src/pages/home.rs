@@ -78,6 +78,20 @@ impl Home {
             parentheses_space: self.state.parentheses_space,
         }
     }
+    fn turtles(&self) -> Html {
+        if self.state.choice_hanging {
+            html! {
+                <>
+                    <i style="float:right;position: relative; top: -67px;" class="nes-squirtle animate is-small"></i>
+                </>
+            }
+        } else {
+            html! {
+                <>
+                </>
+            }
+        }
+    }
     fn header(&self) -> Html {
         html! {
             <header class="{ sticky: scrollPos > 50 }">
@@ -109,7 +123,14 @@ impl Home {
                 <div class="nes-balloon from-right">
                 <p><a href="https://github.com/sbeckeriv/pest_format" target="_blank">{ "Github repo" }</a></p>
                 </div>
-                <i class="nes-octocat animate is-small"></i>
+                <i class="nes-octocat is-small"></i>
+                </section>
+
+                <section class="message -left">
+                <i class="nes-ash animate is-small"></i>
+                <div class="nes-balloon from-left">
+                <p><a href="https://nostalgic-css.github.io/NES.css/" target="_blank">{"NES.css"}</a> {" and "} <a href="https://github.com/yewstack/yew" target="_blank">{ "yew" }</a></p>
+                </div>
                 </section>
                 </section>
                 </section>
@@ -252,6 +273,7 @@ impl Component for Home {
                           <span>{"I like turtles"}</span>
                         </label>
                         </div>
+                        { self.turtles() }
 
                         </div>
                         <br/>
