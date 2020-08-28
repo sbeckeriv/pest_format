@@ -31,19 +31,25 @@ impl Home {
 
     fn footer(&self) -> Html {
         html! {
-            <div id="footer" style="clear:both">
-                <section class="nes-container">
-                <section class="message-list">
-                <section class="message -left">
-                <i class="nes-bcrikko"></i>
-                <div class="nes-balloon from-left">
-                <p>{"Thanks to "} <a href="https://pest.rs/" target="_blank">{"Pest"}</a> {" and "} <a href="https://github.com/pest-parser/pest-fmt" target="_blank">{ "pest-fmt" }</a></p>
-                </div>
-                </section>
-                </section>
-                </section>
-                </div>
-        }
+                  <div id="footer" style="clear:both; width: 63%">
+                      <section class="nes-container">
+                      <section class="message-list">
+                      <section class="message -left">
+                      <i class="nes-ash animate is-small"></i>
+                      <div class="nes-balloon from-left">
+                      <p>{"Thanks to "} <a href="https://pest.rs/" target="_blank">{"Pest"}</a> {" and "} <a href="https://github.com/pest-parser/pest-fmt" target="_blank">{ "pest-fmt" }</a></p>
+                      </div>
+                      </section>
+        <section class="message -right">
+            <div class="nes-balloon from-right">
+              <p><a href="https://github.com/sbeckeriv/pest_format" target="_blank">{ "Github repo" }</a></p>
+            </div>
+            <i class="nes-octocat animate is-small"></i>
+          </section>
+                      </section>
+                      </section>
+                      </div>
+              }
     }
 }
 impl Component for Home {
