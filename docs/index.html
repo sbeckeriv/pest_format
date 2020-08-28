@@ -2,9 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>PestFormat</title>
+    <title>Pest Formatter</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <style>
+      html,
+      body,
+      pre,
+      code,
+      kbd,
+      samp {
+        font-family: "Press Start 2P";
+      }
+      .half {
+        width: 30%;
+        float: left;
+        margin: 20px;
+      }
+    </style>
     <script type="module">
-      import init from "/pest_format/wasm.js";
+      import init from "/pest_format/pestformat_bg.js";
       init();
     </script>
     <link rel="shortcut icon" href="#" />

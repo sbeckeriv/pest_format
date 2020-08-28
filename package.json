@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "arwes": "^1.0.0-alpha.5"
+    "arwes": "^1.0.0-alpha.5",
+    "rollup": "^2.26.6"
   }
 }

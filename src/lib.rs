@@ -1,3 +1,4 @@
+#![recursion_limit = "1024"]
 extern crate console_error_panic_hook;
 extern crate pest_fmt;
 mod pages;

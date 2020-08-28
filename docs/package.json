@@ -5,11 +5,11 @@
   ],
   "version": "0.1.0",
   "files": [
-    "wasm_bg.wasm",
-    "wasm.js",
-    "wasm.d.ts"
+    "pestformat_bg.wasm",
+    "pestformat.js",
+    "pestformat.d.ts"
   ],
-  "module": "wasm.js",
-  "types": "wasm.d.ts",
+  "module": "pestformat.js",
+  "types": "pestformat.d.ts",
   "sideEffects": false
 }

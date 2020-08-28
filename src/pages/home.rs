@@ -1,6 +1,5 @@
 // src/pages/home.rs
 use pest_fmt::Settings;
-use std::panic;
 use yew::prelude::*;
 struct State {
     user: String,
@@ -13,6 +12,26 @@ pub struct Home {
 
 pub enum Msg {
     FormatPest(String),
+}
+impl Home {
+    fn header(&self) -> Html {
+        html! {
+            <div id="nescss">
+              <header class="{ sticky: scrollPos > 50 }">
+                <div class="container">
+                  <div class="nav-brand">
+                    <a href="https://nostalgic-css.github.io/NES.css/">
+                      <h1><i class="nes-mario"></i>{" Pest Formatter"}</h1>
+                    </a>
+                  </div>
+
+                  <div class="social-buttons">
+                  </div>
+                </div>
+              </header>
+            </div>
+        }
+    }
 }
 impl Component for Home {
     type Message = Msg;
@@ -45,13 +64,19 @@ impl Component for Home {
 
     fn view(&self) -> Html {
         html! {
-           <span>
-        <form action="#">
+            <>
+            <div id="nescss">
+            {self.header()}
+           <div class="half">
            <label for="user">{"User pest input"}</label>
-           <textarea rows="33" cols="33" id="user" class="user" value=&self.state.user oninput=self.link.callback(|e: InputData| Msg::FormatPest(e.value)) > </textarea>
+           <textarea rows="20" cols="33" id="user" class="user nes-textarea" value=&self.state.user oninput=self.link.callback(|e: InputData| Msg::FormatPest(e.value)) > </textarea>
+           </div>
+           <div class="half">
            <label for="formatted">{"Formatted pest output"}</label>
-           <textarea id="formatted"  name="formatted" class="formatted" rows="33" cols="33" value=&self.state.formatted> </textarea>
-           </form>
-           </span> }
+           <textarea id="formatted"  name="formatted" class="formatted nes-textarea" rows="20" cols="33" value=&self.state.formatted> </textarea>
+           </div>
+           </div>
+           </>
+        }
     }
 }
