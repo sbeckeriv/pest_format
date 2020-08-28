@@ -20,9 +20,7 @@ impl Home {
               <header class="{ sticky: scrollPos > 50 }">
                 <div class="container">
                   <div class="nav-brand">
-                    <a href="https://nostalgic-css.github.io/NES.css/">
-                      <h1><i class="nes-mario"></i>{" Pest Formatter"}</h1>
-                    </a>
+                    <h1><img src="logo.gif" height="50"/>{" Pest Formatter"}</h1>
                   </div>
 
                   <div class="social-buttons">
