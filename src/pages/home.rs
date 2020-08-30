@@ -63,6 +63,11 @@ pub enum Msg {
     ParenthesesSpace(usize),
 }
 impl Home {
+    fn fmt(&mut self) {
+        let cfg = self.formatter();
+        let current_user = &self.state.user.clone();
+        self.state.formatted = cfg.format(current_user);
+    }
     fn formatter(&self) -> Settings {
         Settings {
             // tab = 4 space
@@ -152,59 +157,50 @@ impl Component for Home {
     fn update(&mut self, message: Self::Message) -> ShouldRender {
         match message {
             Msg::FormatPest(user_text) => {
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&user_text);
                 self.state.user = user_text;
+                self.fmt();
                 true
             }
             Msg::SetIndent(number) => {
                 self.state.indent = number;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
             Msg::SetSpace(number) => {
                 self.state.set_space = number;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
             Msg::ChoiceSpace(number) => {
                 self.state.choice_space = number;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
             Msg::BracesSpace(number) => {
                 self.state.braces_space = number;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
             Msg::SequenceSpace(number) => {
                 self.state.sequence_space = number;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
             Msg::ParenthesesSpace(number) => {
                 self.state.parentheses_space = number;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
 
             Msg::ChoiceHanging => {
                 self.state.choice_hanging = !self.state.choice_hanging;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
 
             Msg::ChoiceFirst => {
                 self.state.choice_first = !self.state.choice_first;
-                let cfg = self.formatter();
-                self.state.formatted = cfg.format(&self.state.user);
+                self.fmt();
                 true
             }
             _ => true,
