@@ -1,5 +1,5 @@
 // src/pages/home.rs
-use pest_fmt::Settings;
+use pest_fmt::{PestError, Settings};
 use yew::prelude::*;
 struct State {
     pub user: String,
@@ -66,11 +66,26 @@ impl Home {
     fn fmt(&mut self) {
         let cfg = self.formatter();
         let current_user = &self.state.user.clone();
-        self.state.formatted = cfg.format(current_user);
+
+        match cfg.format(&current_user) {
+            Ok(formatted) => {
+                self.state.formatted = formatted;
+            }
+            Err(error) => match error {
+                PestError::FormatFail(e) => {
+                    self.state.formatted = format!("Error formatting {}", e);
+                }
+
+                PestError::ParseFail(e) => {
+                    self.state.formatted = e;
+                }
+                _ => {}
+            },
+            _ => {}
+        };
     }
     fn formatter(&self) -> Settings {
         Settings {
-            // tab = 4 space
             indent: self.state.indent,
             set_alignment: self.state.set_alignment,
             blank_lines: None,

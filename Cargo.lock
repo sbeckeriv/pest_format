@@ -313,7 +313,7 @@ dependencies = [
 [[package]]
 name = "pest_fmt"
 version = "0.1.2"
-source = "git+https://github.com/sbeckeriv/pest-fmt#ae67457275407ba6ded4299197ac0acbedc77fd1"
+source = "git+https://github.com/pest-parser/pest-fmt#268cf65e0536d19b44fff79bc3d72ae42d55e982"
 dependencies = [
  "pest",
  "textwrap",
@@ -325,6 +325,7 @@ dependencies = [
 name = "pestformat"
 version = "0.1.0"
 dependencies = [
+ "console_error_panic_hook",
  "pest_fmt",
  "wasm-bindgen",
  "yew",
